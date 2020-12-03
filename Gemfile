@@ -33,6 +33,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 # Devise to create users authentication
 gem 'devise'
+# Authorization PUNDIT
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-byebug'
