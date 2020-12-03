@@ -6,62 +6,71 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Begining seeds - users"
+require 'open-uri'
+OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+OpenURI::Buffer.const_set 'StringMax', 0
 
+puts "Begining seeds"
+
+Bike.destroy_all
 User.destroy_all
-puts "Deleted all users"
+puts "Deleted all users and bikes"
 
 puts "Creating users"
-30.times do
-  user = User.create (
+6.times do
+  user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: "123456"
   )
   puts user
 end
-puts "30 users created"
+puts "10 users created"
 
 puts "Creating bikes:"
-first = {
+
+first = Bike.create!(
   address: Faker::Address.street_address,
   description: "Marin San Rafael DS1",
-  user_id: (1..30).rand
-}
-
-second = {
+  user: User.all.sample
+)
+second = Bike.create!(
   address: Faker::Address.street_address,
   description: "Specialized Women’s Sirrus V-Brake",
-  user_id: (1..30).rand
-}
+  user: User.all.sample
+)
 
-third = {
+third = Bike.create!(
   address: Faker::Address.street_address,
   description: "Aventon Electric: Pace 350 Step Through - 2020",
-  user_id: (1..30).rand
-}
+  user: User.all.sample
+)
 
-forth = {
+forth = Bike.create!(
   address: Faker::Address.street_address,
   description: "Specialized A1 Premium Aluminum, Ground Control Positioning, formed tubes, V-brake, fender/rack mount",
-  user_id: (1..30).rand
-}
+  user: User.all.sample
+)
 
-fifth = {
+fifth = Bike.create!(
   address: Faker::Address.street_address,
-  description: "Liv Pique Advanced Pro 29", 
-  user_id: (1..30).rand
-}
+  description: "Liv Pique Advanced Pro 29",
+  user: User.all.sample
+)
 
-sixth = {
+sixth = Bike.create!(
   address: Faker::Address.street_address,
   description: "Mongoose Impasse Mens Mountain Bike, 29-Inch Wheels, Aluminum Frame, Twist Shifters, 21-Speed Rear Deraileur, Front and Rear Disc Brakes",
-  user_id: (1..30).rand
-}
-
-[first, second, third, forth, fifth, sixth].each do |attr|
-  new_bike = Bike.create!(attr)
-end
+  user: User.all.sample
+)
 
 puts "Six bikes created."
+
+puts "Begining to attach photo"
+url = "https://res.cloudinary.com/sartoriando/image/upload/v1607027529/bikes/01_ervaui.jpg"
+file = URI.open(url)
+filename = File.basename(URI.parse(url).path)
+first.photo.attach(io: file, filename: filename)
+
+puts "photo criated"

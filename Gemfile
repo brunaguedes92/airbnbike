@@ -67,3 +67,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Faker para seeds
 gem 'faker'
+
+# cloudinary
+gem 'cloudinary', '~> 1.16.0'
