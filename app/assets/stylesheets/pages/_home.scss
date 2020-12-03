@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+
+#brand {
+  font-family: $headers-font;
+}
+
+img.icon {
+  width: 48px;
+  height: 48px;
+}
