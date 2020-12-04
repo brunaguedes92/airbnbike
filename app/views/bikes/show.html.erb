@@ -1,6 +1,6 @@
 <div class="container mt=10px">
   <div>
-    <h1>Aqui vem @bike.title</h1>
+    <h1><%= @bike.title %></h1>
   </div>
   <div>
     <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
@@ -11,7 +11,8 @@
   </div>
   <div class="card border-secondary mb-3" style="max-width: 18rem;">
     <div>
-      <span id="price">R$ 500</span>
+      <span id="price"><strong>
+        R$ <%= @bike.price %></strong></span>
       <span id="day"> / dia</span>
     </div>
     <div>
