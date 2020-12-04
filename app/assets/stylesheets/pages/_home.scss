@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+
+#brand {
+  font-family: $headers-font;
+}
+
+img.icon {
+  width: 48px;
+  height: 48px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+h2 {
+  font-weight: 700;
+}
