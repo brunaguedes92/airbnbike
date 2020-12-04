@@ -1,9 +1,11 @@
-<div class="card-trip">
-  <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill%>
-  <div class="card-trip-infos">
-    <div>
-      <h3><span>Description:</span> <%= bike.description.size > 48 ? "#{bike.description.first(45)}..." : bike.description %></h2>
-      <h3><span>Address:</span> <%= bike.address %></h2>
+<%= link_to bike_path(bike), class: "card-link" do %>
+  <div class="card-trip">
+    <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill%>
+    <div class="card-trip-infos">
+      <div>
+        <h3><span>Description:</span> <%= bike.description.size > 48 ? "#{bike.description.first(45)}..." : bike.description %></h2>
+        <h3><span>Address:</span> <%= bike.address %></h2>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
