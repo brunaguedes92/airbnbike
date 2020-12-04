@@ -1,1 +1,23 @@
-<h1>SHOW VIEW</h1>
+<div class="container mt=10px">
+  <div>
+    <h1>Aqui vem @bike.title</h1>
+  </div>
+  <div>
+    <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div>
+    <%= @bike.description %>
+    Disponível em: <%= @bike.address %>
+  </div>
+  <div class="card border-secondary mb-3" style="max-width: 18rem;">
+    <div>
+      <span id="price">R$ 500</span>
+      <span id="day"> / dia</span>
+    </div>
+    <div>
+      calendário - form
+    </div>
+      <%= link_to "Reservar", root_path, class:"" %>
+  </div>
+</div>
+
