@@ -51,7 +51,7 @@ address = Faker::Address.street_address
 url_array.each_with_index do |url, i|
   file = URI.open(url)
   filename = File.basename(URI.parse(url).path)
-  bike = Bike.create!(description: description_array[i], user: User.all.sample, address: address)
+  bike = Bike.create!(description: description_array[i], user: User.all.sample, address: address, title: "Sensational bike", price: 5)
   bike.photo.attach(io: file, filename: filename)
   puts bike
   # bike.save   ativar se em lugar de create for new
