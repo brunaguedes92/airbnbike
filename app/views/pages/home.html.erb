@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'shared/banner' %>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 mt-1">
+    <% 4.times do %>
+      <div class="col mb-1" style="padding-right:2px !important; padding-left:2px !important;">
+        <%= render 'shared/bikes_card' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col">
+      <%= render 'shared/mapbox' %>
+    </div>
+  </div>
+</div>
