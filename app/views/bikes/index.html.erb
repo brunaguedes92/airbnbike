@@ -1,1 +1,4 @@
 <h1>INDEX DAS BIKES</h1>
+
+<% bike = Bike.find(41) %>
+<%= link_to bike.description, bike_path(bike) %>
