@@ -25,14 +25,23 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initSweetalert('#sweet-alert-rent-success', {
+    title: "Success!",
+    text: "Your reservation has been successfully confirmed.",
+    icon: "success"
+  });
+  initSweetalert('#sweet-alert-sign-up-success', {
+    title: "Success!",
+    text: "Your sign up has been successfully confirmed.",
+    icon: "success"
+  });
+  initSweetalert('#sweet-alert-bike-success', {
+    title: "Success!",
+    text: "Your bike has been successfully published.",
+    icon: "success"
+  });
 })
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});
