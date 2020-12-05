@@ -1,6 +1,7 @@
 class RentsController < ApplicationController
+  before_action :set_bike
+
   def new
-    @bike = Bike.find(params[:bike_id])
     @rent = Rent.new
     authorize @rent
   end
@@ -17,6 +18,12 @@ class RentsController < ApplicationController
       render :new
     end
     authorize @rent
+  end
+
+  private
+
+  def set_bike
+    @bike = Bike.find(params[:bike_id])
   end
 
   def rent_params

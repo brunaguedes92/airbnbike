@@ -24,11 +24,15 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import '../plugins/flatpickr';
+
+// Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+
   initSweetalert('#sweet-alert-rent-success', {
     title: "Success!",
     text: "Your reservation has been successfully confirmed.",
