@@ -12,6 +12,7 @@ class RentsController < ApplicationController
     if @rent.valid?
       @rent.status = 'leased'
       @rent.save
+      redirect_to root_path
     else
       render :new
     end
