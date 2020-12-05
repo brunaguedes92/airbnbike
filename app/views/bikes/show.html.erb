@@ -1,5 +1,3 @@
-<section class="card bike-banner my-3" style="background-image: url(<%= cl_image_path @bike.photo.key, height: 300, width: 400, crop: :fill %>)">
-</section>
 <section class="main-content">
   <div class="row">
     <div class="col-12 col-lg-8 mb-3">
@@ -8,7 +6,7 @@
     <aside class="col-12 col-lg-4">
       <div class="sticky-cards mb-3">
         <div class="card mb-3">
-          <%= render 'bikes/shared/bike_rent' %>
+          <%= render 'bikes/shared/bike_rent', bike: @bike %>
         </div>
         <div class="card mb-3">
           <%= render 'bikes/shared/bike_share' %>
