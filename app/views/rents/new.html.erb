@@ -3,6 +3,7 @@
 <%= simple_form_for [@bike, @rent] do |r| %>
   <%= r.input :start_date %>
   <%= r.input :end_date %>
-  <%= r.button :submit, class: "btn btn-primary", value: 'Confirm' %>
-  <%= link_to "Bikes", bikes_path %>
+  <%= r.button :submit, class: "btn btn-primary", id: "sweet-alert-rent-success", value: 'Confirm' %>
 <% end %>
+
+<%= link_to "Bikes", bikes_path, class: "btn btn-outline-primary" %>

@@ -7,13 +7,13 @@ class RentsController < ApplicationController
   end
 
   def create
+    @bike = Bike.find(params[:bike_id])
     @rent = Rent.new(rent_params)
     @rent.bike = @bike
     @rent.user = current_user
     if @rent.valid?
       @rent.status = 'leased'
       @rent.save
-      redirect_to root_path
     else
       render :new
     end
