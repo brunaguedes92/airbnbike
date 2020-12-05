@@ -3,8 +3,8 @@
     <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill%>
     <div class="card-trip-infos">
       <div>
-        <h3><span>Description:</span> <%= bike.description.size > 48 ? "#{bike.description.first(45)}..." : bike.description %></h2>
-        <h3><span>Address:</span> <%= bike.address %></h2>
+        <h3><%= bike.title %></h3>
+        <h4><%= bike.address %></h4>
       </div>
     </div>
   </div>
