@@ -3,5 +3,12 @@ class PagesController < ApplicationController
 
   def home
     @bikes = policy_scope(Bike).order(created_at: :desc)
+
+    @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude
+      }
+    end
   end
 end
