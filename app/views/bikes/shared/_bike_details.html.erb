@@ -1,8 +1,15 @@
 <div class="card h-100">
   <div class="card-body">
-    <h1 class="card-title h3 m-0"><%= @bike.title %></h1>
-    <h2 class="card-subtitle mt-1 mb-3 h6 text-muted"><%= @bike.address %></h2>
-    <h2 class="h5 m-0">Details</h2>
-    <p class="my-1 text-muted"><%= @bike.description %></p>
+    <div class="row"> 
+      <div class="col pt-4 align-middle">
+        <h1 class="card-title h3 m-0"><%= @bike.title %></h1>
+        <h2 class="card-subtitle mt-2 mb-4 h6 text-muted"><%= @bike.address %></h2>
+        <h2 class="h5 m-0">Details</h2>
+        <p class="my-1 text-muted"><%= @bike.description %></p>
+      </div>
+      <div class="col pt-4">
+        <%= cl_image_tag @bike.photo.key, height: 350, width: 400, crop: :fill, class: "img-thumbnail" %>
+      </div>
+    </div>
   </div>
 </div>
