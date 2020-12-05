@@ -13,6 +13,10 @@ class BikesController < ApplicationController
 
   def show
     @bike = Bike.find(params[:id])
+    @markers = [{
+      lat: @bike.latitude,
+      lng: @bike.longitude
+    }]
     authorize @bike
   end
 
