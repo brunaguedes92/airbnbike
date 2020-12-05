@@ -1,0 +1,8 @@
+<h1>NEW RENT</h1>
+
+<%= simple_form_for [@bike, @rent] do |r| %>
+  <%= r.input :start_date %>
+  <%= r.input :end_date %>
+  <%= r.button :submit, class: "btn btn-primary", value: 'Confirm' %>
+  <%= link_to "Bikes", bikes_path %>
+<% end %>

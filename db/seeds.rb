@@ -4,9 +4,10 @@ OpenURI::Buffer.const_set 'StringMax', 0
 
 puts "Begining seeds"
 
+Rent.destroy_all
 Bike.destroy_all
 User.destroy_all
-puts "Deleted all users and bikes"
+puts "Deleted all users, bikes and rents"
 
 puts "Creating users"
 4.times do
@@ -21,14 +22,6 @@ end
 puts "4 users created"
 
 puts "Creating bikes:"
-
-# d_one = "Marin San Rafael DS1"
-# d_two = "Specialized Women’s Sirrus V-Brake"
-# d_three = "Aventon Electric: Pace 350 Step Through - 2020"
-# d_four = "Specialized A1 Premium Aluminum, Ground Control Positioning, formed tubes, V-brake, fender/rack mount"
-# d_five = "Liv Pique Advanced Pro 29"
-# d_six = "Mongoose Impasse Mens Mountain Bike, 29-Inch Wheels, Aluminum Frame, Twist Shifters, 21-Speed Rear Deraileur, Front and Rear Disc Brakes"
-# description_array = [d_one, d_two, d_three, d_four, d_five, d_six]
 
 6.times do
   url = "https://source.unsplash.com/collection/19669960/600x400"
