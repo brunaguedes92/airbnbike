@@ -35,6 +35,8 @@ gem 'simple_form'
 gem 'devise'
 # Authorization PUNDIT
 gem 'pundit'
+# Store price
+gem 'money-rails'
 
 group :development, :test do
   gem 'pry-byebug'
