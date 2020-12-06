@@ -1,14 +1,39 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= cl_image_tag @order.bike.photo.key, width: '100%' %></div>
-    <div class="col">
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
-      <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>BIKE</strong> <%= @order.bike.title %> </li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
-        </li>
-      </ul>
+  <div class="card-body card h-100">
+    <div class="row row-cols-1 row-cols-md-2 justify-content-center"> 
+      <div class="col align-middle mt-2">
+        <h1>Order #<%= @order.id %> <small><span class="badge badge-primary pb-2"><%= @order.state %></span></small></h1>
+        <h1 class="card-title h3 m-0"><%= @order.bike.title %></h1>
+        <h2 class="card-subtitle mt-2 mb-4 h6 text-muted"><%= @order.bike.address %></h2>
+        <h2 class="h5 m-0">Details</h2>
+        <p class="my-1 text-muted"><%= @order.bike.description %></p>
+        <p class="my-1 text-muted m-0 pb-2">Issued on: <%= @order.created_at.to_date.to_formatted_s(:long)  %></p>
+        <div class="div mb-4 mt-2">
+          <h3 class="h5 m-0 pb-2">Price per day: <%= humanized_money_with_symbol(@order.bike.price) %></h2>
+          <h2 class="h5 m-0 pb-2">Total: <%= humanized_money_with_symbol @order.amount %></h2>
+        </div>
+        <div>
+          <div class="row justify-content-center">
+            <div class="col col-12 col-sm-6 d-flex justify-content-center">
+              <%= link_to "Back", :back, class: "btn btn-outline-primary"%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col pt-4 align-itens-center justify-content-center">
+        <%= cl_image_tag @order.bike.photo.key, height: 350, width: 400, crop: :fill, class: "img-thumbnail" %>
+      </div>
     </div>
   </div>
 </div>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const paymentButton = document.getElementById('pay');
+  paymentButton.addEventListener('click', () => {
+    const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+    stripe.redirectToCheckout({
+      sessionId: '<%= @order.checkout_session_id %>'
+    });
+  });
+</script>
+
