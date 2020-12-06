@@ -37,6 +37,8 @@ gem 'devise'
 gem 'pundit'
 # Store price
 gem 'money-rails'
+# payments
+gem 'stripe'
 
 group :development, :test do
   gem 'pry-byebug'

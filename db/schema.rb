@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_004218) do
+ActiveRecord::Schema.define(version: 2020_12_06_011337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(version: 2020_12_06_004218) do
     t.index ["user_id"], name: "index_bikes_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "bike_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bike_id"], name: "index_orders_on_bike_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "rents", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "bike_id", null: false
@@ -77,6 +91,8 @@ ActiveRecord::Schema.define(version: 2020_12_06_004218) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bikes", "users"
+  add_foreign_key "orders", "bikes"
+  add_foreign_key "orders", "users"
   add_foreign_key "rents", "bikes"
   add_foreign_key "rents", "users"
 end
