@@ -1,18 +1,7 @@
-<div class="row justify-content-center mt-3">
-  <h1>Rent your bike</h1>
-</div>
-
-<div class="container">
-  <div>
-    <%= simple_form_for(@bike) do |f| %>
-      <%= f.input :title, label: "Think of an attractive title for your bike" %>
-      <%= f.input :address, label: "Inform the address where be available" %>
-      <%= f.input :description %>
-      <%= f.input :price, label: "Price per day" %>
-      <%= f.input :photo, as: :file %>
-      <div class="d-flex justify-content-between">
-        <%= f.submit 'Submit', class: "btn btn-primary", id: "sweet-alert-bike-success" %>
-      </div>
-    <% end %>
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-10">
+    <div class="form-login mt-0">
+      <h1>Rent your bike</h1>
+      <%= render 'bikes/shared/form', bike: @bike %>
   </div>
 </div>
