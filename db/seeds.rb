@@ -4,6 +4,7 @@ OpenURI::Buffer.const_set 'StringMax', 0
 
 puts "Begining seeds"
 
+Order.destroy_all
 Rent.destroy_all
 Bike.destroy_all
 User.destroy_all
