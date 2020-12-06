@@ -7,7 +7,9 @@ class PagesController < ApplicationController
     @markers = @bikes.geocoded.map do |bike|
       {
         lat: bike.latitude,
-        lng: bike.longitude
+        lng: bike.longitude,
+        infoWindow: render_to_string(partial: "bikes/shared/info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url('marcador_bike.svg')
       }
     end
   end
