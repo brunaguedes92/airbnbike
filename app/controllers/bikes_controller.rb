@@ -2,7 +2,8 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index]
 
   def index
-    @bikes = policy_scope(Bike).order(created_at: :desc)
+    # @bikes = policy_scope(Bike).order(created_at: :desc)
+    @bikes = Bike.all
     @markers = @bikes.geocoded.map do |bike|
       {
         lat: bike.latitude,

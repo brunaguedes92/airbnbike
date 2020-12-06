@@ -1,6 +1,8 @@
 <%= link_to bike_path(bike), class: "card-link" do %>
   <div class="card-trip">
-    <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill%>
+    <% if bike.photo.attached? %>
+      <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill%>
+    <% end %>
     <div class="card-trip-infos">
       <div>
         <h3><%= bike.title %></h3>
