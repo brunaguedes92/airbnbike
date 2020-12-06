@@ -3,6 +3,7 @@ class Bike < ApplicationRecord
   has_one_attached :photo
   has_many :rents
   geocoded_by :address
+  monetize :price_cents
 
   after_validation :geocode, if: :will_save_change_to_address?
 

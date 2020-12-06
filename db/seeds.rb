@@ -32,7 +32,7 @@ puts "Creating bikes:"
     user: User.all.sample,
     address: Faker::Address.street_address,
     title: "#{Faker::Adjective.positive} bike".capitalize,
-    price: 5
+    price: rand(10..25)
   )
   bike.photo.attach(io: file, filename: filename)
   puts bike

@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :bikes, only: %i[index new show create] do
     resources :rents, only: %i[new create show]
   end
+  resources :orders, only: %i[show create] do
+    resources :payments, only: :new
+  end
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
