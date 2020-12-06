@@ -39,6 +39,7 @@ gem 'pundit'
 gem 'money-rails'
 # payments
 gem 'stripe'
+gem 'stripe_event'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -1,7 +1,7 @@
 require 'date'
 
 class OrdersController < ApplicationController
-  before_action :set_bike, :order_params, only: :create
+  before_action :order_params, only: :create
 
   def create
     @bike = Bike.find(params[:order][:bike_id])
