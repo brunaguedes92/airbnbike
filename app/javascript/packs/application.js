@@ -28,10 +28,12 @@ import '../plugins/flatpickr';
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
-import { initSweetalert } from '../plugins/init_sweetalert';
+// import { initSweetalert } from '../plugins/init_sweetalert';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { previewImageOnFileSelect } from '../components/photo_preview'
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
+  previewImageOnFileSelect();
 })

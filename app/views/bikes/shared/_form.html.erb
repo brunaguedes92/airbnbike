@@ -1,0 +1,19 @@
+<%= simple_form_for(@bike) do |f| %>
+  <%= f.input :title, label: "Think of an attractive title for your bike" %>
+  <%= f.input :address, label: "Enter the address where it will be available" %>
+  <%= f.input :description %>
+  <%= f.input :price, label: "Price per day" %>
+  <div class="row">
+    <div class="col col-12 col-sm-6">
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input'} , label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+    </div>
+    <div class="col col-12 col-sm-6">
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col col-12 col-sm-4 d-flex justify-content-center">
+      <%= f.submit 'Submit', class: "btn btn-primary", id: "sweet-alert-bike-success" %>
+    </div>
+  </div>
+<% end %>

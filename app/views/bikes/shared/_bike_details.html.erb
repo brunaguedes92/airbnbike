@@ -4,8 +4,10 @@
       <div class="col pt-4 align-middle">
         <h1 class="card-title h3 m-0"><%= @bike.title %></h1>
         <h2 class="card-subtitle mt-2 mb-4 h6 text-muted"><%= @bike.address %></h2>
+        <h2 class="h5 m-0">Owner</h2>
+        <h2 class="card-subtitle mt-2 mb-4 h6 text-muted"><%= @bike.user.first_name %> <%= @bike.user.last_name %></h2>
         <h2 class="h5 m-0">Details</h2>
-        <p class="my-1 text-muted"><%= @bike.description %></p>
+        <p class="my-1 text-muted  mb-4"><%= @bike.description %></p>
         <h2 class="h5 m-0">Price per day</h2>
         <p class="my-1 text-muted"><%= humanized_money_with_symbol(@bike.price) %></p>
       </div>
