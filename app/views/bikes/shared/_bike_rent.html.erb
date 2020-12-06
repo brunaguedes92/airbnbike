@@ -3,8 +3,8 @@
   <div class="form-group">
     <div class="input-group mb-2 border-rounded d-block">
       <%= simple_form_for(@order, as: :order, method: :post, url: orders_path) do |r| %>
-        <%= r.input :start_date, label: "From:", as: :string, input_html: { id: "start_date", class: "datepicker" } %>
-        <%= r.input :end_date, label: "To:",  as: :string, input_html: { id: "end_date", class: "datepicker" } %>
+        <%= r.input :start_date, label: "From:", as: :string, input_html: { id: "start_date" } %>
+        <%= r.input :end_date, label: "To:",  as: :string, input_html: { id: "end_date" } %>
         <%= r.input :bike_id, as: :hidden, input_html: { value: @bike.id } %>
         <%= r.button :submit, class: "btn btn-warning btn-lg btn-block", value: "Rent for € #{@bike.price}/day" %>
       <% end %>
