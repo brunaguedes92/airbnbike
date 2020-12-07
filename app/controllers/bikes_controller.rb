@@ -43,6 +43,11 @@ class BikesController < ApplicationController
     end
   end
 
+  def my_bikes
+    @bikes = Bike.where(user_id: current_user)
+    authorize @bikes
+  end
+
   private
 
   def bike_params

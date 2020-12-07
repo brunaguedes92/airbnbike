@@ -21,6 +21,10 @@ class BikePolicy < ApplicationPolicy
     owner?
   end
 
+  def my_bikes?
+    true
+  end
+
   private
 
   def owner?
