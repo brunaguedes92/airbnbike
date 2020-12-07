@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :orders, only: %i[show create] do
     resources :payments, only: :new
+
+    collection do
+      get :my_orders
+    end
   end
 
   resources :rents, only: %i[index show]

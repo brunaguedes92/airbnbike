@@ -12,4 +12,8 @@ class OrderPolicy < ApplicationPolicy
   def create?
     return true
   end
+
+  def my_orders?
+    true
+  end
 end
