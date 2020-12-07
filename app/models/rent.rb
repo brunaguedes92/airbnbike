@@ -1,6 +1,7 @@
 class Rent < ApplicationRecord
-  belongs_to :user
-  belongs_to :bike
+  belongs_to :order
+  has_one :user, through: :order
+  has_one :bike, through: :order
 
-  validates :user, :bike, :start_date, :end_date, presence: true
+  validates :order, :state, presence: true
 end
