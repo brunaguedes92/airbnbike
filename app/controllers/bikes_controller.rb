@@ -11,6 +11,11 @@ class BikesController < ApplicationController
         image_url: helpers.asset_url('marcador_bike.svg')
       }
     end
+    if params[:query].present?
+      # sql_query = " title @@ :query OR description @@ :query"
+      # @bikes = Bike.where(sql_query, query: "%#{params[:query]}%")
+      @bikes = Bike.search_by_title_and_description(params[:query])
+    end
   end
 
   def show
