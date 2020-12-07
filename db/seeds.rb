@@ -12,6 +12,9 @@ puts "Deleted all users, bikes and rents"
 
 puts "Creating users"
 4.times do
+  url = "https://unsplash.com/collections/32338382/avatar"
+  file = URI.open(url)
+  filename = File.basename(URI.parse(url).path)
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -19,6 +22,8 @@ puts "Creating users"
     password: "123456"
   )
   puts user
+  user.photo.attach(io: file, filename: filename)
+  puts "user avatar photo attached"
 end
 puts "4 users created"
 
