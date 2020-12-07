@@ -9,12 +9,4 @@ const initSweetalert = (selector, options = {}) => {
   }
 };
 
-document.addEventListener('turbolinks:load', ()=>{
-  initSweetalert('#sweet-alert-bike-success', {
-    title: "Success!",
-    text: "Your bike has been successfully published.",
-    icon: "success"
-  });
-})
-
 export { initSweetalert };
