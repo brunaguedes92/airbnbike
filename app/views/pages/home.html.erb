@@ -4,13 +4,13 @@
     <h2>Check it out</h2>
   </div>
   <div class="row row-cols-1 row-cols-md-3 mt-1">
-    <% @bikes.last(6).each do |bike| %>
+    <% @bikes.first(6).each do |bike| %>
       <div class="col mb-1" style="padding-right:2px !important; padding-left:2px !important;">
           <%= render 'shared/bikes_card', bike: bike %>
       </div>
     <% end %>
   </div>
-   <div class="row justify-content-center mt-4 mb-4">
+  <div class="row justify-content-center mt-4 mb-4">
     <h2>Near you</h2>
   </div>
   <div class="row justify-content-center">
