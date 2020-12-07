@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :bikes
-  has_many :rents
   has_many :orders
+  has_many :bikes, through: :orders
+  has_many :rents, through: :orders
 
   validates :first_name, presence: true
   validates :last_name, presence: true
