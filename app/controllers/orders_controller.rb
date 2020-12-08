@@ -8,7 +8,14 @@ class OrdersController < ApplicationController
     start_date = Date.strptime(params[:order][:start_date], '%Y-%m-%d')
     end_date = Date.strptime(params[:order][:end_date], '%Y-%m-%d')
     @quantity = (end_date - start_date).to_i
-    order = Order.create!(bike: @bike, amount: @bike.price * @quantity, state: 'pending', user: current_user, start_date: params[:order][:start_date], end_date: params[:order][:end_date])
+    order = Order.create!(
+      bike: @bike,
+      amount: @bike.price * @quantity,
+      state: 'pending',
+      user: current_user,
+      start_date: start_date,
+      end_date: end_date
+    )
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
