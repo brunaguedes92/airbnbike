@@ -16,4 +16,10 @@ class Bike < ApplicationRecord
                   }
 
   validates :address, :description, :title, :price, presence: true
+
+  def unavailable_dates
+    orders.where(["state=?", 'paid']).pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
