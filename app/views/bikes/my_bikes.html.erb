@@ -1,5 +1,11 @@
+<div class="mt-2 pl-2 pr-2" style="background-color: white">
 <% if @bikes.empty? %>
-  You have no bikes
+  <div class="row justify-content-center">
+    <div class="col my-4">
+      <h1 class="h2 mb-4">You have no bikes.</h1>
+      <h2><%= link_to "Start Now", new_bike_path, class: "btn btn-warning btn-lg" %></h2>
+    </div>
+  </div>
 <% else %>
   <% @bikes.each do |bike| %>
 
@@ -26,3 +32,4 @@
   <% end %>
 <% end %>
 
+</div>
