@@ -3,12 +3,31 @@
   <div class="row justify-content-center mt-4 mb-4">
     <h2>Check it out</h2>
   </div>
-  <div class="row row-cols-1 row-cols-md-3 mt-1">
-    <% @bikes.first(6).each do |bike| %>
-      <div class="col mb-1" style="padding-right:2px !important; padding-left:2px !important;">
-          <%= render 'shared/bikes_card', bike: bike %>
-      </div>
-    <% end %>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <% @bikes.each_with_index do |bike, index| %>
+        <li data-target="#myCarousel" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+      <% end %>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <% @bikes.each_with_index do |bike, index| %>     
+        <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+          <%= cl_image_tag bike.photo.key, class: "d-block w-100", style: "height: 600px; object-fit: cover;" %>
+          <div class="carousel-caption d-none d-md-block">
+            <h5><%= bike.title %></h5>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>  
   </div>
   <div class="row justify-content-center mt-4 mb-4">
     <h2>Near you</h2>
