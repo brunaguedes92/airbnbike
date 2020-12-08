@@ -9,5 +9,6 @@
         <%= r.button :submit, class: "btn btn-warning btn-lg btn-block", value: "Rent for € #{@bike.price}/day" %>
       <% end %>
     </div>
+    <p hidden class="widget-content" data-unavailable="<%= @bike.unavailable_dates.to_json %>"></p>
   </div>
 </div>
