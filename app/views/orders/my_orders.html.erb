@@ -1,0 +1,27 @@
+<% if @orders.empty? %>
+<div class="row justify-content-center">
+  <div class="col my-4">
+    <h1 class="h2 mb-4">You have no rents.</h1>
+    <h2><%= link_to "Start Now", bikes_path, class: "btn btn-warning btn-lg" %></h2>
+  </div>
+</div>
+<% else %>
+<div class="row justify-content-center">
+  <h1 class="mb-4">Your rents</h1>
+</div>
+<div class="row">
+  <% @orders.each do |order| %>
+    <div class="col-6">
+      <div class="card-trip mr-2 mb-2 rounded">
+        <%= cl_image_tag order.bike.photo.key, height: 300, width: 400, crop: :fill%>
+        <div class="card-trip p-2">
+          <h2 class="card-title mb-2">Payment Status: <%= order.state.capitalize %></h2>
+          <h3 class="h5">Initial orderal date: <%= order.start_date %></h3>
+          <h3 class="h5">Return date: <%= order.end_date %></h3>
+          <h3 class="h5 mt-2 pb-2">Total amount to pay: <%= humanized_money_with_symbol(order.amount) %></h3>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% end %>

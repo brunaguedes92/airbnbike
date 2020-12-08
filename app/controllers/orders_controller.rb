@@ -32,6 +32,11 @@ class OrdersController < ApplicationController
     authorize @order
   end
 
+  def my_orders
+    @orders = Order.where(user_id: current_user)
+    authorize @orders
+  end
+
   private
 
   def order_params
